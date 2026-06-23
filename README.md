@@ -85,18 +85,22 @@ Say `"build mode"` to your AI assistant → the full protocol activates.
 
 ### Script Trigger
 ```bash
-./scripts/engineering-protocol "Add user authentication"
+./scripts/engineering-protocol start "Add user authentication"
+./scripts/engineering-protocol finish "Commit message"
+./scripts/engineering-protocol check
 ```
 
-This creates a feature branch and activates the protocol banner.
+- `start` — Creates a feature branch from `main` and activates the protocol
+- `finish` — Commits changes, pushes the branch, opens a PR to `staging`
+- `check` — Counts lines changed vs the 1,000 line limit
 
 ## Tooling
 
 | Tool | Purpose |
 |------|---------|
-| `scripts/engineering-protocol` | Create feature branch, activate protocol |
-| `scripts/finish-feature.sh` | Commit, push, open PR to staging |
-| `scripts/check-pr-size.sh` | Validate PR stays under 1,000 lines |
+| `scripts/engineering-protocol start "name"` | Create feature branch, activate protocol |
+| `scripts/engineering-protocol finish "msg"` | Commit, push, open PR to staging |
+| `scripts/engineering-protocol check` | Validate PR stays under 1,000 lines |
 
 ## Quick Reference Card
 

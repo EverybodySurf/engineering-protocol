@@ -130,9 +130,9 @@ Three-level pipeline: **Local → Staging → Main**
 
 | Command | What it does |
 |---------|-------------|
-| `./scripts/engineering-protocol "name"` | Creates branch, activates protocol |
-| `./scripts/finish-feature.sh` | Commits + pushes + opens PR to staging |
-| `./scripts/check-pr-size.sh` | Counts lines changed vs 1,000 limit |
+| `./scripts/engineering-protocol start "name"` | Creates branch, activates protocol |
+| `./scripts/engineering-protocol finish "msg"` | Commits, pushes, opens PR to staging |
+| `./scripts/engineering-protocol check` | Counts lines changed vs 1,000 limit |
 
 ---
 
