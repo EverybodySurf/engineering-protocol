@@ -1,6 +1,6 @@
 ---
 name: engineering-protocol
-description: "Combined build protocol: source context → architecture methodology → pipeline → cleanup. Activated by trigger phrase 'build mode' or start-feature.sh script."
+description: "Combined build protocol: source context → architecture methodology → pipeline → cleanup. Activated by trigger phrase 'build mode' or engineering-protocol script."
 ---
 
 # Engineering Protocol
@@ -10,7 +10,7 @@ description: "Combined build protocol: source context → architecture methodolo
 ## How It Activates
 
 - **Trigger phrase:** Luis says "build mode" (in any message) → I read this skill → protocol is live
-- **Script:** `./scripts/start-feature.sh` → also activates the protocol
+- **Script:** `./scripts/engineering-protocol` → also activates the protocol
 - **Default:** Even without trigger, MEMORY.md directive means I use this for every coding task
 
 ---
@@ -130,7 +130,7 @@ Three-level pipeline: **Local → Staging → Main**
 
 | Command | What it does |
 |---------|-------------|
-| `./scripts/start-feature.sh "name"` | Creates branch, activates protocol |
+| `./scripts/engineering-protocol "name"` | Creates branch, activates protocol |
 | `./scripts/finish-feature.sh` | Commits + pushes + opens PR to staging |
 | `./scripts/check-pr-size.sh` | Counts lines changed vs 1,000 limit |
 
@@ -165,7 +165,7 @@ Do NOT extract:
 ## Quick Reference Card
 
 ```
-"build mode" / start-feature.sh
+"build mode" / engineering-protocol
         │
         ▼
 ╔══════════════════════════════════════╗
