@@ -85,9 +85,9 @@ Say `"build mode"` to your AI assistant → the full protocol activates.
 
 ### Script Trigger
 ```bash
-./scripts/engineering-protocol start "Add user authentication"
-./scripts/engineering-protocol finish "Commit message"
-./scripts/engineering-protocol check
+./scripts/pr-workflow start "Add user authentication"
+./scripts/pr-workflow finish "Commit message"
+./scripts/pr-workflow check
 ```
 
 - `start` — Creates a feature branch from `main` and activates the protocol
@@ -98,9 +98,9 @@ Say `"build mode"` to your AI assistant → the full protocol activates.
 
 | Tool | Purpose |
 |------|---------|
-| `scripts/engineering-protocol start "name"` | Create feature branch, activate protocol |
-| `scripts/engineering-protocol finish "msg"` | Commit, push, open PR to staging |
-| `scripts/engineering-protocol check` | Validate PR stays under 1,000 lines |
+| `scripts/pr-workflow start "name"` | Create feature branch, activate protocol |
+| `scripts/pr-workflow finish "msg"` | Commit, push, open PR to staging |
+| `scripts/pr-workflow check` | Validate PR stays under 1,000 lines |
 
 ## Quick Reference Card
 

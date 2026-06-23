@@ -10,7 +10,7 @@ description: "Combined build protocol: source context → architecture methodolo
 ## How It Activates
 
 - **Trigger phrase:** Luis says "build mode" (in any message) → I read this skill → protocol is live
-- **Script:** `./scripts/engineering-protocol` → also activates the protocol
+- **Script:** `./scripts/pr-workflow start "name"` → also activates the protocol
 - **Default:** Even without trigger, MEMORY.md directive means I use this for every coding task
 
 ---
@@ -130,9 +130,9 @@ Three-level pipeline: **Local → Staging → Main**
 
 | Command | What it does |
 |---------|-------------|
-| `./scripts/engineering-protocol start "name"` | Creates branch, activates protocol |
-| `./scripts/engineering-protocol finish "msg"` | Commits, pushes, opens PR to staging |
-| `./scripts/engineering-protocol check` | Counts lines changed vs 1,000 limit |
+| `./scripts/pr-workflow start "name"` | Creates branch, activates protocol |
+| `./scripts/pr-workflow finish "msg"` | Commits, pushes, opens PR to staging |
+| `./scripts/pr-workflow check` | Counts lines changed vs 1,000 limit |
 
 ---
 
@@ -165,7 +165,7 @@ Do NOT extract:
 ## Quick Reference Card
 
 ```
-"build mode" / engineering-protocol
+"build mode" / pr-workflow
         │
         ▼
 ╔══════════════════════════════════════╗
