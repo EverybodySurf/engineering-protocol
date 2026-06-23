@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ──────────────────────────────────────────────
+# engineering-protocol — Begin a new feature branch
+# ──────────────────────────────────────────────
+# Usage:
+#   ./scripts/engineering-protocol "Add surf spot forecast widget"
+#   ./scripts/engineering-protocol   (prompts for name)
+# ──────────────────────────────────────────────
+
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+# Get feature name
+NAME="${1:-}"
+if [ -z "$NAME" ]; then
+  echo "Feature name (short, e.g. 'Add surf spot forecast'):"
+  read -r NAME
+fi
+
+# Sanitize: lowercase, replace spaces with hyphens, strip special chars
+BRANCH="feature/$(echo "$NAME" \
+  | tr '[:upper:]' '[:lower:]' \
+  | sed 's/[^a-z0-9 -]//g' \
+  | sed 's/ /-/g' \
+  | sed 's/--*/-/g' \
+  | sed 's/^-//;s/-$//')"
+
+echo ""
+echo "━━━ Start Feature ━━━"
+echo ""
+
+# Make sure we're on main
+git checkout main
+git pull origin main
+
+# Create branch
+git checkout -b "$BRANCH"
+
+echo ""
+echo -e "${GREEN}✅ Branch created: ${CYAN}$BRANCH${NC}"
+echo -e "${GREEN}⚡ Engineering Protocol activated — full build mode engaged${NC}"
+echo ""
+echo "  Next:"
+echo "   1. Phase 1: Context — I’ll read only the files we need"
+echo "   2. Phase 2: Architecture — policy split from mechanics"
+echo "   3. Build your feature in this branch (< 1,000 lines)"
+echo "   4. When ready: ./scripts/finish-feature.sh"
+echo "   5. Phase 4: Cleanup — extract dupes after PR merges"
+echo ""
+echo "  Current branch: $(git branch --show-current)"
+echo ""
